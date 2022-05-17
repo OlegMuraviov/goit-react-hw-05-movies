@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './MovieDetails.module.css';
 import { Outlet } from 'react-router-dom';
 import GoBack from 'components/GoBack/GoBack';
@@ -34,4 +35,7 @@ const MovieDetails = ({ movie }) => {
     </>
   );
 };
+
+MovieDetails.propTypes = { movie: PropTypes.object };
+
 export default MovieDetails;
