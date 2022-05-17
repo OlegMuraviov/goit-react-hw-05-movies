@@ -1,0 +1,19 @@
+.title {
+  margin: 0;
+  padding: 5px 20px;
+}
+.item {
+  margin: 0;
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+}
+.item:not(:last-child) {
+  margin-right: 20px;
+}
+.item:hover,
+.item:focus {
+  color: blueviolet;
+  background-color: rgb(255, 127, 157);
+}

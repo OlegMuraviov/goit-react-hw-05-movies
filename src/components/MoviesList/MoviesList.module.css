@@ -1,0 +1,22 @@
+.list {
+  margin: 0 auto;
+  list-style-type: none;
+}
+.item__link {
+  display: block;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+.item__title {
+  margin: 0;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: black;
+}
+.item__title:focus,
+.item__title:hover {
+  color: blueviolet;
+  background-color: rgb(255, 127, 157);
+}
