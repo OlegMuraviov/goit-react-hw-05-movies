@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/797.b7fd401b.chunk.css","mappings":"AAAA,wBACE,YACF,CACA,yBAEE,gBAAiB,CADjB,WAEF,CACA,0BAEE,cAAe,CADf,WAEF","sources":["components/SearchForm/SearchForm.module.css"],"sourcesContent":[".form {\n  padding: 20px;\n}\n.input {\n  padding: 5px;\n  margin-right: 5px;\n}\n.button {\n  padding: 5px;\n  cursor: pointer;\n}\n"],"names":[],"sourceRoot":""}
