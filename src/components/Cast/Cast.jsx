@@ -1,4 +1,4 @@
-import { getCredits } from 'components/utils/getDataFromApi';
+import { getCredits } from 'utils/getDataFromApi';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 

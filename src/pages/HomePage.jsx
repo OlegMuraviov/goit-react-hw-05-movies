@@ -1,6 +1,6 @@
 import s from './HomePage.module.css';
 import MoviesList from 'components/MoviesList/MoviesList';
-import { getPopularMovies } from 'components/utils/getDataFromApi';
+import { getPopularMovies } from 'utils/getDataFromApi';
 import { useEffect, useState } from 'react';
 
 const HomePage = () => {

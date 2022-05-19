@@ -2,7 +2,7 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getMovieBySearch } from 'components/utils/getDataFromApi';
+import { getMovieBySearch } from 'utils/getDataFromApi';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
