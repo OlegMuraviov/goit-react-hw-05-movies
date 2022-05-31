@@ -1,6 +1,9 @@
 .list {
   margin: 0 auto;
   list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .item__link {
   display: block;
@@ -19,4 +22,8 @@
 .item__title:hover {
   color: blueviolet;
   background-color: rgb(255, 127, 157);
+}
+.image {
+  width: 400px;
+  height: 250px;
 }

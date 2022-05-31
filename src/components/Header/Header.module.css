@@ -1,6 +1,7 @@
 .header {
   display: flex;
   text-align: center;
+  justify-content: center;
   padding: 20px;
   border-bottom: 1px solid #000;
 }
@@ -17,5 +18,8 @@
 .header__title:hover,
 .header__title:focus {
   color: blueviolet;
+  background-color: rgb(255, 127, 157);
+}
+.active__link {
   background-color: rgb(255, 127, 157);
 }

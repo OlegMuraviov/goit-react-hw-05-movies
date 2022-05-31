@@ -11,7 +11,7 @@ const HomePage = () => {
       .then(data => {
         setPopular(data.results);
       })
-      .catch(err => console.log(err))
+      .catch(error => console.log(error.message))
       .finally(() => {});
   }, []);
   return (

@@ -10,7 +10,9 @@ const MovieDetails = ({ movie }) => {
       <GoBack />
       <div style={{ display: 'flex' }}>
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w500${
+            movie.backdrop_path ? movie.backdrop_path : movie.poster_path
+          }`}
           alt="title"
         />
         <div>
