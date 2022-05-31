@@ -26,18 +26,6 @@ const MovieDetailsPage = () => {
       .finally(() => {});
   }, [movieId]);
 
-  // useEffect(() => {
-  //   const fetchMovie = async () => {
-  //     try {
-  //       const data = await getMovieById(movieId);
-  //       setMovie(prevState => ({ ...prevState, content: data }));
-  //     } catch (error) {
-  //       console.log('WARNING');
-  //     }
-  //   };
-  //   fetchMovie();
-  // }, []);
-
   const checkData = () => {
     if (movie.error)
       return (
@@ -54,14 +42,3 @@ const MovieDetailsPage = () => {
   return <>{checkData()}</>;
 };
 export default MovieDetailsPage;
-
-// const [movie, setMovie] = useState(null);
-
-// useEffect(() => {
-//   getMovieById(movieId)
-//     .then(data => {
-//       setMovie(data);
-//     })
-//     .catch(error => console.log(error.message))
-//     .finally(() => {});
-// }, []);
