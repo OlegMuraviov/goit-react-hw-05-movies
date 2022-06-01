@@ -6,9 +6,6 @@ import noImage from '../../images/No-Image-Placeholder.png';
 const MoviesList = ({ movies }) => {
   const location = useLocation();
 
-  //як поставити альтернативне зображення (відсутній малюнок)
-  //не виходить завантажити альтернативний малюнок, в чому проблема?
-
   return (
     <>
       {movies && (

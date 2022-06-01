@@ -4,6 +4,11 @@ import { getPopularMovies } from 'utils/getDataFromApi';
 import { useEffect, useState } from 'react';
 
 const HomePage = () => {
+  // const [popular, setPopular] = useState({
+  //   data: [],
+  //   loading: false,
+  //   error: null,
+  // });
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
