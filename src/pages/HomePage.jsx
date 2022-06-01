@@ -20,7 +20,7 @@ const HomePage = () => {
           loading: false,
           data: data.results,
         }));
-      } catch {
+      } catch (error) {
         setPopular(prevState => ({
           ...prevState,
           loading: false,
@@ -30,7 +30,7 @@ const HomePage = () => {
     };
     fetchPopularMovies();
   }, []);
-  const { data, loading, error } = popular;
+  const { data, loading } = popular;
   return (
     <>
       {loading && <p>...loading</p>}
