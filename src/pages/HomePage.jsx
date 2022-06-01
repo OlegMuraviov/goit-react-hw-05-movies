@@ -9,6 +9,7 @@ const HomePage = () => {
   //   loading: false,
   //   error: null,
   // });
+
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {

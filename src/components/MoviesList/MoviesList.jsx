@@ -24,7 +24,7 @@ const MoviesList = ({ movies }) => {
             };
 
             return (
-              <li key={element.id}>
+              <li key={element.id} className={s.item}>
                 <Link
                   className={s.item__link}
                   to={`/movies/${element.id}`}
