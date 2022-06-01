@@ -21,7 +21,7 @@ const Cast = () => {
       <ul style={{ listStyleType: 'none', display: 'flex', flexWrap: 'wrap' }}>
         {casts.map(element => {
           return (
-            <div style={{ width: '150px' }}>
+            <div style={{ width: '150px', textAlign: 'center' }}>
               <li key={element.id}>
                 <img
                   style={{ width: '100px' }}
