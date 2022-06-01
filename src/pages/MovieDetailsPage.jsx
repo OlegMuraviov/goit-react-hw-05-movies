@@ -24,11 +24,11 @@ const MovieDetailsPage = () => {
           loading: false,
           content: data,
         }));
-      } catch ({ message }) {
+      } catch (error) {
         setMovie(prevState => ({
           ...prevState,
           loading: false,
-          error: message,
+          error: error.message,
         }));
       }
     };
