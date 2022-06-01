@@ -18,21 +18,23 @@ const Cast = () => {
 
   return (
     <>
-      <ul style={{ listStyleType: 'none' }}>
+      <ul style={{ listStyleType: 'none', display: 'flex', flexWrap: 'wrap' }}>
         {casts.map(element => {
           return (
-            <li key={element.id}>
-              <img
-                style={{ width: '100px' }}
-                src={
-                  element.profile_path
-                    ? `https://image.tmdb.org/t/p/w500${element.profile_path}`
-                    : noImage
-                }
-                alt={element.character}
-              />
-              <p>{element.name}</p>
-            </li>
+            <div style={{ width: '150px' }}>
+              <li key={element.id}>
+                <img
+                  style={{ width: '100px' }}
+                  src={
+                    element.profile_path
+                      ? `https://image.tmdb.org/t/p/w500${element.profile_path}`
+                      : noImage
+                  }
+                  alt={element.character}
+                />
+                <p>{element.name}</p>
+              </li>
+            </div>
           );
         })}
       </ul>
