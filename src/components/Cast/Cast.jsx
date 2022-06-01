@@ -18,7 +18,14 @@ const Cast = () => {
 
   return (
     <>
-      <ul style={{ listStyleType: 'none', display: 'flex', flexWrap: 'wrap' }}>
+      <ul
+        style={{
+          listStyleType: 'none',
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'baseline',
+        }}
+      >
         {casts.map(element => {
           return (
             <li
@@ -26,7 +33,7 @@ const Cast = () => {
               style={{ width: '150px', textAlign: 'center' }}
             >
               <img
-                style={{ width: '100px' }}
+                style={{ width: '100px', height: '150px' }}
                 src={
                   element.profile_path
                     ? `https://image.tmdb.org/t/p/w500${element.profile_path}`
