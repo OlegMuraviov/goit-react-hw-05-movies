@@ -3,18 +3,23 @@ import s from './MovieDetails.module.css';
 import { Outlet } from 'react-router-dom';
 import GoBack from 'components/GoBack/GoBack';
 import AdditionalInformation from 'components/AdditionalInformation/AdditionalInformation';
+import noImage from '../../images/No-Image-Placeholder.png';
 
 const MovieDetails = ({ movie }) => {
+  const checkMovieImage = () => {
+    if (!movie.backdrop_path && !movie.poster_path) {
+      return noImage;
+    } else {
+      return `https://image.tmdb.org/t/p/w500${
+        movie.backdrop_path ? movie.backdrop_path : movie.poster_path
+      }`;
+    }
+  };
   return (
     <>
       <GoBack />
       <div style={{ display: 'flex' }}>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${
-            movie.backdrop_path ? movie.backdrop_path : movie.poster_path
-          }`}
-          alt="title"
-        />
+        <img className={s.image} src={checkMovieImage()} alt="title" />
         <div>
           <h1 className={s.title}>
             {movie.title}(

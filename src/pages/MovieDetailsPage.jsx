@@ -12,9 +12,6 @@ const MovieDetailsPage = () => {
   });
 
   const { movieId } = useParams();
-
-  // від серверу приходить помилка 404, як відобразити що контент по фільму не знайдений
-
   useEffect(() => {
     getMovieById(movieId)
       .then(data => {

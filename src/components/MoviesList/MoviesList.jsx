@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import s from './MoviesList.module.css';
 import { Link, useLocation } from 'react-router-dom';
+import noImage from '../../images/No-Image-Placeholder.png';
 
 const MoviesList = ({ movies }) => {
   const location = useLocation();
@@ -14,8 +15,8 @@ const MoviesList = ({ movies }) => {
         <ul className={s.list}>
           {movies.map(element => {
             const checkMovieImage = () => {
-              if (!element.backdrop_path || !element.poster_path) {
-                return '../../images/No_Image_Available.jpg';
+              if (!element.backdrop_path && !element.poster_path) {
+                return noImage;
               } else {
                 return `https://image.tmdb.org/t/p/w500${
                   element.backdrop_path
