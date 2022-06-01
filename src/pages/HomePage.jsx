@@ -4,26 +4,38 @@ import { getPopularMovies } from 'utils/getDataFromApi';
 import { useEffect, useState } from 'react';
 
 const HomePage = () => {
-  // const [popular, setPopular] = useState({
-  //   data: [],
-  //   loading: false,
-  //   error: null,
-  // });
-
-  const [popular, setPopular] = useState([]);
+  const [popular, setPopular] = useState({
+    data: [],
+    loading: false,
+    error: null,
+  });
 
   useEffect(() => {
-    getPopularMovies()
-      .then(data => {
-        setPopular(data.results);
-      })
-      .catch(error => console.log(error.message))
-      .finally(() => {});
+    const fetchPopularMovies = async () => {
+      try {
+        setPopular(prevState => ({ ...prevState, loading: true }));
+        const data = await getPopularMovies();
+        setPopular(prevState => ({
+          ...prevState,
+          loading: false,
+          data: data.results,
+        }));
+      } catch {
+        setPopular(prevState => ({
+          ...prevState,
+          loading: false,
+          error: error.message,
+        }));
+      }
+    };
+    fetchPopularMovies();
   }, []);
+  const { data, loading, error } = popular;
   return (
     <>
+      {loading && <p>...loading</p>}
       <h1 className={s.title}>Trending today</h1>
-      <MoviesList movies={popular} />
+      <MoviesList movies={data} />
     </>
   );
 };

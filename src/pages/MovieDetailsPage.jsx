@@ -12,30 +12,38 @@ const MovieDetailsPage = () => {
   });
 
   const { movieId } = useParams();
+
   useEffect(() => {
-    getMovieById(movieId)
-      .then(data => {
-        setMovie(prevState => ({ ...prevState, content: data }));
-      })
-      .catch(error => {
-        setMovie(prevState => ({ ...prevState, error: error.message }));
-      })
-      .finally(() => {});
+    const fetchMovie = async () => {
+      try {
+        setMovie(prevState => ({ ...prevState, loading: true }));
+        const data = await getMovieById(movieId);
+
+        setMovie(prevState => ({
+          ...prevState,
+          loading: false,
+          content: data,
+        }));
+      } catch ({ message }) {
+        setMovie(prevState => ({
+          ...prevState,
+          loading: false,
+          error: message,
+        }));
+      }
+    };
+    fetchMovie();
   }, [movieId]);
 
-  const checkData = () => {
-    if (movie.error)
-      return (
-        <>
-          <GoBack />
-          <h2>Server didn't find info about this movie</h2>
-        </>
-      );
-    else {
-      return movie.content && <MovieDetails movie={movie.content} />;
-    }
-  };
+  const { content, loading, error } = movie;
 
-  return <>{checkData()}</>;
+  return (
+    <>
+      <GoBack />
+      {loading && <p>...loading</p>}
+      {error && <p>Server didn't find info about this movie</p>}
+      {content && <MovieDetails movie={content} />}
+    </>
+  );
 };
 export default MovieDetailsPage;
