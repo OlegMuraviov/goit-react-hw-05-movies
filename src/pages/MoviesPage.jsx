@@ -1,7 +1,7 @@
 import SearchForm from 'components/SearchForm/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { getMovieBySearch } from 'utils/getDataFromApi';
 
 const MoviesPage = () => {
@@ -10,13 +10,13 @@ const MoviesPage = () => {
     loading: false,
     error: null,
   });
-  const location = useLocation();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query');
 
   useEffect(() => {
-    const paramsString = new URLSearchParams(location.search);
-    const query = paramsString.get('query');
-
     if (!query) return;
+
     const fetchMovies = async () => {
       setMovies(prevState => ({ ...prevState, loading: true }));
       try {
@@ -35,13 +35,15 @@ const MoviesPage = () => {
       }
     };
     fetchMovies();
-  }, [location]);
+  }, [query]);
+
+  const onSubmit = ({ query }) => setSearchParams({ query });
 
   const { data, loading, error } = movies;
 
   return (
     <>
-      <SearchForm />
+      <SearchForm onSubmit={onSubmit} />
       {loading && <p>... loading</p>}
       {error && <p>{error.message}</p>}
       <MoviesList movies={data} />

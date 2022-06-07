@@ -1,19 +1,20 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import s from './SearchForm.module.css';
 
-const SearchForm = () => {
-  const [query, setQuery] = useState('');
-
-  const navigate = useNavigate();
+const SearchForm = ({ onSubmit }) => {
+  const [state, setState] = useState({
+    query: '',
+  });
 
   const onInput = e => {
-    setQuery(e.target.value);
+    setState({ query: e.target.value });
   };
 
   const onSubmitSearch = e => {
     e.preventDefault();
-    navigate({ search: `query=${query}` });
+    onSubmit({ ...state });
+    setState({ query: '' });
   };
 
   return (
@@ -23,7 +24,7 @@ const SearchForm = () => {
           onChange={onInput}
           type="text"
           placeholder="Let's find some movies"
-          value={query}
+          value={state.query}
           className={s.input}
         />
         <button type="submit" className={s.button}>
